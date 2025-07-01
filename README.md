@@ -3,8 +3,8 @@
 Aplicativo de controle financeiro pessoal feito com Flutter.
 
 ## Recursos
-- Cadastro de entradas e saídas
-- Visualização de saldo
+- Cadastro de saídas
+- Visualização de despesas
 - Interface responsiva
 
 ## Como rodar

@@ -15,6 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isLoading = false;
+  bool isAutenticado = false;
 
   void _login() async {
     if (_formKey.currentState!.validate()) {
@@ -80,39 +81,37 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextFormField(
                       controller: _emailController,
                       decoration: const InputDecoration(
-                        labelText: 'E-mail',
-                        prefixIcon: Icon(Icons.email),
+                        labelText: 'User',
+                        prefixIcon: Icon(Icons.person),
                       ),
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Insira um e-mail';
+                          return 'Insira um User';
                         }
-                        // if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                        //     .hasMatch(value)) {
-                        //   return 'E-mail inválido';
-                        // }
+
                         return null;
                       },
                     ),
                     const SizedBox(height: 16),
-                    TextFormField(
-                      controller: _passwordController,
-                      decoration: const InputDecoration(
-                        labelText: 'Senha',
-                        prefixIcon: Icon(Icons.lock),
+                    if (!isAutenticado)
+                      TextFormField(
+                        controller: _passwordController,
+                        decoration: const InputDecoration(
+                          labelText: 'Senha',
+                          prefixIcon: Icon(Icons.lock),
+                        ),
+                        obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Insira uma senha';
+                          }
+                          if (value.length < 1) {
+                            return 'A senha deve ter pelo menos 6 caracteres';
+                          }
+                          return null;
+                        },
                       ),
-                      obscureText: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Insira uma senha';
-                        }
-                        if (value.length < 1) {
-                          return 'A senha deve ter pelo menos 6 caracteres';
-                        }
-                        return null;
-                      },
-                    ),
                     const SizedBox(height: 24),
                     _isLoading
                         ? const CircularProgressIndicator()

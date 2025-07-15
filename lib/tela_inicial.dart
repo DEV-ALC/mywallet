@@ -2,6 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'cadastros/cad_etiquetas.dart';
+import 'relatorios/relatorio_veiculo.dart';
+import 'relatorios/relatorio_casa.dart';
 import 'db/database.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'relatorios/relatorio_mensal.dart';
@@ -320,6 +322,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const RelatorioMensal()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.house),
+              title: const Text('Casa'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RelatorioMensal()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.directions_car),
+              title: const Text('Veiculos'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Vehicle()));
               },
             ),
             ListTile(

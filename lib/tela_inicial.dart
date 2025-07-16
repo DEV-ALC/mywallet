@@ -1,13 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+
+//ROTAS
+import 'relatorios/relatorio_mensal.dart';
+import 'animations/confirmacao.dart';
 import 'cadastros/cad_etiquetas.dart';
 import 'relatorios/relatorio_veiculo.dart';
 import 'relatorios/relatorio_casa.dart';
 import 'db/database.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-import 'relatorios/relatorio_mensal.dart';
-import 'animations/confirmacao.dart';
 
 class PersonalWalletApp extends StatelessWidget {
   const PersonalWalletApp({super.key});
@@ -328,10 +330,8 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: const Icon(Icons.house),
               title: const Text('Casa'),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RelatorioMensal()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const House()));
               },
             ),
             ListTile(
@@ -504,10 +504,12 @@ class _HomeScreenState extends State<HomeScreen> {
             await _refreshEtiquetas();
             _showAdicionardialog();
           },
+          backgroundColor: Colors.purple,
+          elevation: 6,
           child: const Icon(
             Icons.add,
-            color: Colors.purple,
-            size: 50,
+            color: Colors.white,
+            size: 32,
           ),
         ),
       ),

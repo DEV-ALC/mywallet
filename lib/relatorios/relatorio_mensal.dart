@@ -1,10 +1,10 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+
+//ROTAS
 import '../../db/database.dart';
 import 'pop/valor_tag.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class RelatorioMensal extends StatefulWidget {
   const RelatorioMensal({super.key});
